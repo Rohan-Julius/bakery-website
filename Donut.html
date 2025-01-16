@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <title>Donuts</title>
+    
+        <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cabin&family=Herr+Von+Muellerhoff&family=Poiret+One&family=Source+Sans+Pro:wght@700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        />
+        <script
+          src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous"
+        ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="mycart.js"></script>
+        <script src="myscript.js"></script>
+        <script>
+          function myFunction() {
+            var x = document.getElementById("mynavTop");
+            if (x.className === "navtop") {
+              x.className += " responsive";
+            } else {
+              x.className = "navtop";
+            }
+          }
+
+        /* S E L E C T I N G   I T E M S */
+
+        function change(){
+            document.getElementById('demo').innerHTML=(form.select[form.select.selectedIndex].text);
+        }
+
+        function change2(){
+            document.getElementById('demo2').innerHTML=(form2.select2[form2.select2.selectedIndex].text);
+        }
+
+        function change3(){
+            document.getElementById('demo3').innerHTML=(form3.select3[form3.select3.selectedIndex].text);
+        }
+
+        function change12(){
+            document.getElementById('demo12').innerHTML=(form12.select12[form12.select12.selectedIndex].text);
+        }
+
+        function change19(){
+            document.getElementById('demo19').innerHTML=(form19.select19[form19.select19.selectedIndex].text);
+        }
+
+    </script>
+
+    <style>
+        :root {
+        --main-font: "Source Sans Pro", sans-serif;
+        --secondary-font: "Poiret One", cursive;
+        --body-font: "Cabin", sans-serif;
+        --headings-font: "Herr Von Muellerhoff", cursive;
+      }
+        body{
+            background-color: #e5a369;
+            font-family: var(--body-font);
+            font-size: 10px;
+            scroll-behavior: smooth;
+            margin: 0px;
+        }
+
+        /* N A V I G A T I O N */
+
+        .navtop {
+        overflow: hidden;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
+      }
+
+      .navtop a {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navtop .icon {
+        display: none;
+      }
+
+      .drop_down {
+        float: left;
+        overflow: hidden;
+      }
+
+      .drop_down .dropdown_btn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .drop-content {
+        display: none;
+        position: absolute;
+        background-color: #f2d1b4;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .drop-content a {
+        float: none;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .navtop a:hover,
+      .drop_down:hover .dropdown_btn,
+      .search-container button:hover {
+        background-color:#f9e8d9;
+        color: white;
+      }
+
+      .drop-content a:hover {
+        background-color: #f9e8d9;
+        color: white;
+      }
+
+      .drop_down:hover .drop-content {
+        display: block;
+      }
+
+      @media screen and (max-width: 920px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop a:not(:first-child),
+        .dropdown .dropbtn {
+          display: none;
+        }
+
+        .navtop a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop.responsive {
+          position: relative;
+        }
+        .navtop.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .navtop.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+        .navtop.responsive .drop_down {
+          float: none;
+        }
+        .navtop.responsive .drop-content {
+          position: relative;
+        }
+        .navtop.responsive .drop_down .dropdown_btn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        .navtop input[type="text"] {
+          display: inline;
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 17px;
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 488px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      .search-container {
+        float: right;
+      }
+
+      .navtop input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #f9e8d9;
+        font-size: 17px;
+      }
+
+
+        /* M A I N - C O N T E N T */
+
+       #main{
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 5%;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        #heading{
+        	background-color: rgba(255, 255, 255, 0.9);
+        	text-align: center;
+        	margin: 5% 5% 0% 5%;
+        	padding: 2%;
+            height: auto;
+            width: auto;
+            overflow: hidden;
+        }
+
+        #heading h1{
+            font-family:var(--headings-font);
+            font-size: 85px;
+        }
+
+        #heading h4{
+            font-style: italic;
+            font-weight: lighter;
+            color: grey;
+        }
+
+
+        /* I T E M   D E T A I L S */
+
+        .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: 3%;
+        text-align: center;
+        background-color: white;
+        border: 1.5px solid black;
+        transition: 1s ease-in-out;
+        }
+
+        .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        transition: 1s ease-in-out;
+        }
+
+        .card:hover{
+            box-shadow: 10px 10px 25px white;
+        }
+
+        .card button:hover {
+        opacity: 0.9;
+        background-color: #370617;
+        }
+
+        .description{
+            padding: 3%;
+            font-size: 1.4em;
+        }
+
+        .item-img{
+        height: 250px;
+        width: 100%;
+        }
+
+        .item-price{
+            text-decoration:none;
+            color:brown;
+            position:relative;
+            top:-2%;
+            margin:0 0 0 2%;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 22px;
+
+        }
+
+        .price-dropdown{
+            text-decoration:none;
+            color:grey;
+            position:relative;
+            top:-5%;
+            margin:0 0 0 2%;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<!--  N A V I G A T I O N   B A R  -->
+
+
+<div class="topnav" id="myTopnav">
+    <div class="navtop" id="mynavTop">
+      <a style="color: white" href="Homepage.html">Home</a>
+      <div class="drop_down">
+        <button class="dropdown_btn">
+          Items
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="drop-content">
+          <a style="color: white" href="Cakes.html">Cakes</a>
+          <a style="color: white" href="Pastries.html">Pastries</a>
+          <a style="color: white" href="BiscuitsAndCookies.html">Cookies</a>
+          <a style="color: white" href="Donut.html">Donuts</a>
+        </div>
+      </div>
+      <a style="color: white" href="KitchenPage.html">Our Kitchen</a>
+      <a style="color: white" href="Gallery.html">Gallery</a>
+      <a href="" style="float: right" data-toggle="modal" data-target="#cart"
+        ><i class="fas fa-shopping-cart"></i
+        ><span class="cart-items">( 0 )</span></a
+      >
+      <a href="SignUp Page.html" target="_blank" style="float: right"
+        ><i class="fas fa-user"></i
+      ></a>
+      <a
+        href="javascript:void(0);"
+        style="font-size: 15px"
+        class="icon"
+        onclick="myFunction()"
+        >&#9776;</a
+      >
+
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search"
+          name="search"
+          pattern="[A-Za-z]"
+        />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+    <!--  M A I N   C O N T E N T  -->
+
+    <div id="heading">
+    	<h1>Doughnut</h1>
+        <h4>"Sprinkles are just glitter for food."</h4>
+    </div>
+
+ 
+
+    <!--  I T E M   C A R D S  -->
+
+    <div id="main">
+
+    <div class="card" id="card1">
+    <img src="https://imgix.bustle.com/uploads/shutterstock/2021/2/10/f68dbb5e-74c2-4e41-8095-c17184973f11-shutterstock-740991550.jpg?w=375&fit=max&auto=format%2Ccompress&q=50&dpr=2" class="item-img">
+    <h1 class="name" id="name1">Love Donut</h1>
+            <form name="form">
+                <select id="a1" class="price-dropdown"  name="select" Onchange="change()" value="Quanity and Price">
+                    <option value="1 Piece ~ ₹99">1 Piece ~ ₹99</option>
+                    <option value="2 Pieces ~ ₹819">2 Pieces ~ ₹819</option>
+                    <option value="3 Pieces ~ ₹918">3 Pieces ~ ₹918</option>
+                    <option value="4 Pieces ~ ₹1017">4 Pieces ~ ₹1017</option>
+                </select>
+            </form>
+            <p id="demo" class="item-price"></p>   
+        
+    <p class="description">Everything is better with this yummy Duck Donuts!!</p>
+    <p><button onclick="add_to_cart('1','Love Donut','99')">Add to Cart</button></p>
+    </div>
+
+    <div class="card">
+    <img src="https://www.meme-arsenal.com/memes/f240861eefa4d99c73191112e8361415.jpg" class="item-img">
+    <h1>Sprinkles</h1>
+    <form name="form2">
+                <select id="a2" class="price-dropdown" name="select2" Onchange="change2()" value="Quanity and Price-2">
+                    <option value="1 Piece ~ ₹99">1 Piece ~ ₹99</option>
+                    <option value="2 Pieces ~ ₹819">2 Pieces ~ ₹819</option>
+                    <option value="3 Pieces ~ ₹918">3 Pieces ~ ₹918</option>
+                    <option value="4 Pieces ~ ₹1017">4 Pieces ~ ₹1017</option>
+                </select>
+            </form>
+            <p id="demo2" class="item-price"></p>
+    <p class="description">Yummy chocolate donut with sprinkles for a sweet, with overpowering taste.</p>
+    <p><button onclick="add_to_cart('2','Sprinkles','99')">Add to Cart</button></p>
+    </div>
+
+    <div class="card">
+    <img src="https://nyssaskitchen.com/wp-content/uploads/2020/02/Dark-Chocolate-Raspberry-Donuts-26-of-40-1020x1530.jpg" class="item-img">
+    <h1>Double Chocolaty</h1>
+    <form name="form3">
+                <select id="a3" class="price-dropdown" name="select3" Onchange="change3()" value="Quanity and Price-3">
+                    <option value="1 Piece ~ ₹99">1 Piece ~ ₹99</option>
+                    <option value="2 Pieces ~ ₹819">2 Pieces ~ ₹819</option>
+                    <option value="3 Pieces ~ ₹918">3 Pieces ~ ₹918</option>
+                    <option value="4 Pieces ~ ₹1017">4 Pieces ~ ₹1017</option>
+                </select>
+            </form>
+            <p id="demo3" class="item-price"></p>
+    <p class="description">Rich chocolate cake donuts dunked in a delicious chocolate glaze</p>
+    <p><button onclick="add_to_cart('3','Double Chocolaty','99')">Add to Cart</button></p>
+    </div>
+
+    <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Z0jQ2klR9owM_H1VWTWfzuXxvM7WAVSaMzHPQejukK_qWTen-OmbZIlQs7cl6AcbdfA&usqp=CAU" class="item-img">
+    <h1>Frosted Donut</h1>
+    <form name="form12">
+                <select id="a12" class="price-dropdown" name="select12" Onchange="change12()" value="Quanity and Price-12">
+                    <option value="1 Piece ~ ₹99">1 Piece ~ ₹99</option>
+                    <option value="2 Pieces ~ ₹819">2 Pieces ~ ₹819</option>
+                    <option value="3 Pieces ~ ₹918">3 Pieces ~ ₹918</option>
+                    <option value="4 Pieces ~ ₹1017">4 Pieces ~ ₹1017</option>
+                </select>
+            </form>
+            <p id="demo12" class="item-price"></p>
+    <p class="description">A little nutmeg is the secret ingredient to that cozy, comforting doughnut taste!</p>
+    <p><button onclick="add_to_cart('12','Frosted Donut','99')">Add to Cart</button></p>
+    </div>
+
+    <div class="card">
+    <img src="https://i.insider.com/5d07e0fbdaa482526419c9b5?width=1000&format=jpeg&auto=webp" class="item-img">
+    <h1>Look At Me</h1>
+    <form name="form13">
+                <select id="a13" class="price-dropdown" name="select13" Onchange="change13()" value="Quanity and Price-13">
+                    <option value="1 Piece ~ ₹99">1 Piece ~ ₹99</option>
+                    <option value="2 Pieces ~ ₹819">2 Pieces ~ ₹819</option>
+                    <option value="3 Pieces ~ ₹918">3 Pieces ~ ₹918</option>
+                    <option value="4 Pieces ~ ₹1017">4 Pieces ~ ₹1017</option>
+                </select>
+            </form>
+            <p id="demo13" class="item-price"></p>
+    <p class="description">Look at the eyes of these creamy donut, you will fall in yumm!</p>
+    <p><button onclick="add_to_cart('13','Look At Me','99')">Add to Cart</button></p>
+    </div>
+
+
+    <div class="card">
+    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F03%2F392145.jpg&w=200&c=sc&poi=face&q=85" class="item-img">
+    <h1>Churros</h1>
+    <form name="form19">
+                <select id="a19" class="price-dropdown" name="select19" Onchange="change19()" value="Quanity and Price-19">
+                    <option value="1 Piece ~ ₹99">1 Piece ~ ₹99</option>
+                    <option value="2 Pieces ~ ₹819">2 Pieces ~ ₹819</option>
+                    <option value="3 Pieces ~ ₹918">3 Pieces ~ ₹918</option>
+                    <option value="4 Pieces ~ ₹1017">4 Pieces ~ ₹1017</option>
+                </select>
+            </form>
+            <p id="demo19" class="item-price"></p>
+    <p class="description">Served with classic dusting of cinnamon sugar & dipped in choco sauce!</p>
+    <p><button onclick="add_to_cart('19','Churros','99')">Add to Cart</button></p>
+    </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel" style="font-weight:bold;">Your Cart</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        <div class="cart-body">
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary checkout-btn" onclick="Checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F O O T E R   S O C I A L   I C O N S -->
+
+ 
+
+</body>
+</html>

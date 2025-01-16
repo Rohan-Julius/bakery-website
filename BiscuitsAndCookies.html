@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Biscuits and Cookies</title>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin&family=Herr+Von+Muellerhoff&family=Poiret+One&family=Source+Sans+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="mycart.js"></script>
+    <script src="myscript.js"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("mynavTop");
+        if (x.className === "navtop") {
+          x.className += " responsive";
+        } else {
+          x.className = "navtop";
+        }
+      }
+
+      /* S E L E C T I N G   I T E M S */
+
+      function change() {
+        document.getElementById("demo").innerHTML =
+          form.select[form.select.selectedIndex].text;
+      }
+
+
+      function change3() {
+        document.getElementById("demo3").innerHTML =
+          form3.select3[form3.select3.selectedIndex].text;
+      }
+
+      function change12() {
+        document.getElementById("demo12").innerHTML =
+          form12.select12[form12.select12.selectedIndex].text;
+      }
+
+      function change13() {
+        document.getElementById("demo13").innerHTML =
+          form13.select13[form13.select13.selectedIndex].text;
+      }
+
+      function change14() {
+        document.getElementById("demo14").innerHTML =
+          form14.select14[form14.select14.selectedIndex].text;
+      }
+ 
+      function change22() {
+        document.getElementById("demo22").innerHTML =
+          form22.select22[form22.select22.selectedIndex].text;
+      }
+
+    </script>
+
+    <style>
+      :root {
+        --main-font: "Source Sans Pro", sans-serif;
+        --secondary-font: "Poiret One", cursive;
+        --body-font: "Cabin", sans-serif;
+        --headings-font: "Herr Von Muellerhoff", cursive;
+      }
+
+      body {
+        background-color: #eebcbe;
+        font-family: var(--body-font);
+        font-size: 10px;
+        scroll-behavior: smooth;
+        margin: 0px;
+      }
+
+      /* N A V I G A T I O N */
+
+      .navtop {
+        overflow: hidden;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
+      }
+
+      .navtop a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navtop .icon {
+        display: none;
+      }
+
+      .drop_down {
+        float: left;
+        overflow: hidden;
+      }
+
+      .drop_down .dropdown_btn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .drop-content {
+        display: none;
+        position: absolute;
+        background-color: #f4acb7;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .drop-content a {
+        float: none;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .navtop a:hover,
+      .drop_down:hover .dropdown_btn,
+      .search-container button:hover {
+        background-color: #f4acb7;
+        color: white;
+      }
+
+      .drop-content a:hover {
+        background-color: #e5989b;
+        color: white;
+      }
+
+      .drop_down:hover .drop-content {
+        display: block;
+      }
+
+      @media screen and (max-width: 920px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop a:not(:first-child),
+        .dropdown .dropbtn {
+          display: none;
+        }
+
+        .navtop a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop.responsive {
+          position: relative;
+        }
+        .navtop.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .navtop.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+        .navtop.responsive .drop_down {
+          float: none;
+        }
+        .navtop.responsive .drop-content {
+          position: relative;
+        }
+        .navtop.responsive .drop_down .dropdown_btn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        .navtop input[type="text"] {
+          display: inline;
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 17px;
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 488px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      .search-container {
+        float: right;
+      }
+
+      .navtop input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #eebcbe;
+        font-size: 17px;
+        border: none;
+      }
+
+      /* M A I N - C O N T E N T */
+
+      #main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 5%;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      #heading {
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        margin: 5% 5% 0% 5%;
+        padding: 2%;
+        height: auto;
+        width: auto;
+        overflow: hidden;
+      }
+
+      #heading h1 {
+        font-family: var(--headings-font);
+        font-size: 85px;
+      }
+
+      #heading h4 {
+        font-style: italic;
+        font-weight: lighter;
+        color: grey;
+      }
+
+      /* I T E M   D E T A I L S */
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: 3%;
+        text-align: center;
+        background-color: white;
+        border: 1.5px solid black;
+        transition: 1s ease-in-out;
+      }
+
+      .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        transition: 1s ease-in-out;
+      }
+
+      .card:hover {
+        box-shadow: 10px 10px 25px white;
+      }
+
+      .card button:hover {
+        opacity: 0.9;
+        background-color: #370617;
+      }
+
+      .description {
+        padding: 3%;
+        font-size: 1.4em;
+      }
+
+      .item-img {
+        height: 250px;
+        width: 100%;
+      }
+
+      .item-price {
+        text-decoration: none;
+        color: brown;
+        position: relative;
+        top: -2%;
+        margin: 0 0 0 2%;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 22px;
+      }
+
+      .price-dropdown {
+        text-decoration: none;
+        color: grey;
+        position: relative;
+        top: -5%;
+        margin: 0 0 0 2%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--  N A V I G A T I O N   B A R  -->
+
+    <div class="topnav" id="myTopnav">
+      <div class="navtop" id="mynavTop">
+        <a style="color: white" href="Homepage.html">Home</a>
+        <div class="drop_down">
+          <button class="dropdown_btn">
+            Items
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="drop-content">
+            <a style="color: white" href="Cakes.html">Cakes</a>
+            <a style="color: white" href="Pastries.html">Pastries</a>
+            <a style="color: white" href="BiscuitsAndCookies.html">Cookies</a>
+            <a style="color: white" href="Donut.html">Donuts</a>
+          </div>
+        </div>
+        <a style="color: white" href="KitchenPage.html">Our Kitchen</a>
+        <a style="color: white" href="Gallery.html">Gallery</a>
+        <a href="" style="float: right" data-toggle="modal" data-target="#cart"
+          ><i class="fas fa-shopping-cart"></i
+          ><span class="cart-items">( 0 )</span></a
+        >
+        <a href="SignUp Page.html" target="_blank" style="float: right"
+          ><i class="fas fa-user"></i
+        ></a>
+        <a
+          href="javascript:void(0);"
+          style="font-size: 15px"
+          class="icon"
+          onclick="myFunction()"
+          >&#9776;</a
+        >
+
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            pattern="[A-Za-z]"
+          />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!--  M A I N   C O N T E N T  -->
+
+    <div id="heading">
+      <h1>Biscuits & Cookies</h1>
+      <h4>"A balanced diet is a cookie in each hand."<br />-Barbara Johnson</h4>
+    </div>
+
+    <!--  I T E M   C A R D S  -->
+
+    <div id="main">
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/564x/81/09/9e/81099e0eb6ed3c567742c565e4753617.jpg"
+          class="item-img"
+        />
+        <h1>Ghibli Cookies</h1>
+        <form name="form22">
+          <select
+            id="a22"
+            class="price-dropdown"
+            name="select22"
+            Onchange="change22()"
+            value="Quanity and Price-22"
+          >
+            <option value="250g ~ ₹35">250g ~ ₹35</option>
+            <option value="500g ~ ₹65">500g ~ ₹65</option>
+            <option value="1kg ~ ₹129">1kg ~ ₹129</option>
+            <option value="2kg ~ ₹249">2kg ~ ₹249</option>
+          </select>
+        </form>
+        <p id="demo22" class="item-price"></p>
+        <p class="description">
+          A special baked treat for all studio ghibli fans!
+        </p>
+        <p>
+          <button onclick="add_to_cart('1','Ghibli Cookies','35')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      
+
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/474x/67/b6/c1/67b6c1cc46f05db912824c7eee9e6d7c.jpg"
+          class="item-img"
+        />
+        <h1>Classic Choco</h1>
+        <form name="form">
+          <select
+            id="a1"
+            class="price-dropdown"
+            name="select"
+            Onchange="change()"
+            value="Quanity and Price"
+          >
+            <option value="250g ~ ₹39">250g ~ ₹39</option>
+            <option value="500g ~ ₹75">500g ~ ₹75</option>
+            <option value="1kg ~ ₹149">1kg ~ ₹149</option>
+            <option value="2kg ~ ₹299">2kg ~ ₹299</option>
+          </select>
+        </form>
+        <p id="demo" class="item-price"></p>
+        <p class="description">The all time favorite choco chip cookies!</p>
+        <p>
+          <button onclick="add_to_cart('4','Classic Choco','39')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/564x/93/ff/70/93ff70f51ad243f745fdbcc108613cd0.jpg"
+          class="item-img"
+        />
+        <h1>Swirling Colours</h1>
+        <form name="form3">
+          <select
+            id="a3"
+            class="price-dropdown"
+            name="select3"
+            Onchange="change3()"
+            value="Quanity and Price-3"
+          >
+            <option value="250g ~ ₹39">250g ~ ₹39</option>
+            <option value="500g ~ ₹75">500g ~ ₹75</option>
+            <option value="1kg ~ ₹149">1kg ~ ₹149</option>
+            <option value="2kg ~ ₹299">2kg ~ ₹299</option>
+          </select>
+        </form>
+        <p id="demo3" class="item-price"></p>
+        <p class="description">
+          Soft sprinkle pudding cookies loaded with vanilla flavour!
+        </p>
+        <p>
+          <button onclick="add_to_cart('6','Swirling Colours','39')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+     =
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/564x/40/6e/98/406e985b4b356119def7552c1b0f12db.jpg"
+          class="item-img"
+        />
+        <h1>Kiddie Delight</h1>
+        <form name="form14">
+          <select
+            id="a14"
+            class="price-dropdown"
+            name="select14"
+            Onchange="change14()"
+            value="Quanity and Price-14"
+          >
+            <option value="250g ~ ₹39">250g ~ ₹39</option>
+            <option value="500g ~ ₹75">500g ~ ₹75</option>
+            <option value="1kg ~ ₹149">1kg ~ ₹149</option>
+            <option value="2kg ~ ₹299">2kg ~ ₹299</option>
+          </select>
+        </form>
+        <p id="demo14" class="item-price"></p>
+        <p class="description">
+          Treat your kids with these wonderful colourful cookies!
+        </p>
+        <p>
+          <button onclick="add_to_cart('10','Kiddie Delight','39')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      <div class="card">
+        <img
+         src="https://i.pinimg.com/564x/22/a8/f6/22a8f67f38d2125c36edeee7f9868c1f.jpg"
+          class="item-img"
+        />
+        <h1>Galaxy Flash</h1>
+        <form name="form12">
+          <select
+            id="a12"
+            class="price-dropdown"
+            name="select12"
+            Onchange="change12()"
+            value="Quanity and Price-12"
+          >
+            <option value="250g ~ ₹45">250g ~ ₹45</option>
+            <option value="500g ~ ₹85">500g ~ ₹85</option>
+            <option value="1kg ~ ₹159">1kg ~ ₹159</option>
+            <option value="2kg ~ ₹329">2kg ~ ₹329</option>
+          </select>
+        </form>
+        <p id="demo12" class="item-price"></p>
+        <p class="description">
+          Embark on an intergalactic travel with this creamy delight!
+        </p>
+        <p>
+          <button onclick="add_to_cart('17','Galaxy Flash','45')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/564x/89/b0/1f/89b01fabbe928cd57712872d1d28d769.jpg"
+          class="item-img"
+        />
+        <h1>Sea Foam</h1>
+        <form name="form13">
+          <select
+            id="a13"
+            class="price-dropdown"
+            name="select13"
+            Onchange="change13()"
+            value="Quanity and Price-13"
+          >
+            <option value="250g ~ ₹45">250g ~ ₹45</option>
+            <option value="500g ~ ₹85">500g ~ ₹85</option>
+            <option value="1kg ~ ₹159">1kg ~ ₹159</option>
+            <option value="2kg ~ ₹329">2kg ~ ₹329</option>
+          </select>
+        </form>
+        <p id="demo13" class="item-price"></p>
+        <p class="description">
+          Fresh sea green biscuits bringing waves of euphoria!
+        </p>
+        <p>
+          <button onclick="add_to_cart('18','Sea Foam','45')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3
+              class="modal-title"
+              id="exampleModalLabel"
+              style="font-weight: bold"
+            >
+              Your Cart
+            </h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-body"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary checkout-btn"
+              onclick="Checkout()"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

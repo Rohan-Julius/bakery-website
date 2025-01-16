@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chocolate Cakes</title>
+
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin&family=Herr+Von+Muellerhoff&family=Poiret+One&family=Source+Sans+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="mycart.js"></script>
+    <script src="myscript.js"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("mynavTop");
+        if (x.className === "navtop") {
+          x.className += " responsive";
+        } else {
+          x.className = "navtop";
+        }
+      }
+
+      /* S E L E C T I N G   I T E M S */
+
+      function change1() {
+        document.getElementById("demo1").innerHTML =
+          form1.select1[form1.select1.selectedIndex].text;
+      }
+
+      function change2() {
+        document.getElementById("demo2").innerHTML =
+          form2.select2[form2.select2.selectedIndex].text;
+      }
+
+      function change3() {
+        document.getElementById("demo3").innerHTML =
+          form3.select3[form3.select3.selectedIndex].text;
+      }
+
+      function change4() {
+        document.getElementById("demo4").innerHTML =
+          form4.select4[form4.select4.selectedIndex].text;
+      }
+
+      function change5() {
+        document.getElementById("demo5").innerHTML =
+          form5.select5[form5.select5.selectedIndex].text;
+      }
+
+      function change6() {
+        document.getElementById("demo6").innerHTML =
+          form6.select6[form6.select6.selectedIndex].text;
+      }
+    </script>
+
+    <style>
+      :root {
+        --main-font: "Source Sans Pro", sans-serif;
+        --secondary-font: "Poiret One", cursive;
+        --body-font: "Cabin", sans-serif;
+        --headings-font: "Herr Von Muellerhoff", cursive;
+      }
+
+      body {
+        background-color: #664d4d;
+        font-family: var(--body-font);
+        font-size: 10px;
+        scroll-behavior: smooth;
+        margin: 0px;
+      }
+
+      /* N A V I G A T I O N */
+
+      .navtop {
+        overflow: hidden;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
+      }
+
+      .navtop a {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navtop .icon {
+        display: none;
+      }
+
+      .drop_down {
+        float: left;
+        overflow: hidden;
+      }
+
+      .drop_down .dropdown_btn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .drop-content {
+        display: none;
+        position: absolute;
+        background-color: #664d4d;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .drop-content a {
+        float: none;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .navtop a:hover,
+      .drop_down:hover .dropdown_btn,
+      .search-container button:hover {
+        background-color: rgb(169, 125, 125);
+        color: white;
+      }
+
+      .drop-content a:hover {
+        background-color: rgb(169, 125, 125);
+        color: white;
+      }
+
+      .drop_down:hover .drop-content {
+        display: block;
+      }
+
+      @media screen and (max-width: 920px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop a:not(:first-child),
+        .dropdown .dropbtn {
+          display: none;
+        }
+
+        .navtop a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop.responsive {
+          position: relative;
+        }
+        .navtop.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .navtop.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+        .navtop.responsive .drop_down {
+          float: none;
+        }
+        .navtop.responsive .drop-content {
+          position: relative;
+        }
+        .navtop.responsive .drop_down .dropdown_btn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        .navtop input[type="text"] {
+          display: inline;
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 17px;
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 488px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      .search-container {
+        float: right;
+      }
+
+      .navtop input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: rgb(169, 125, 125);
+        font-size: 17px;
+      }
+
+      /* M A I N - C O N T E N T */
+
+      #main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 5%;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      #heading {
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        font-family: var(--headings-font);
+        font-size: 85px;
+        margin: 5% 5% 0% 5%;
+        padding: 2%;
+      }
+
+      /* I T E M   D E T A I L S */
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: 3%;
+        text-align: center;
+        background-color: white;
+        border: 1.5px solid black;
+        transition: 1s ease-in-out;
+      }
+
+      .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        transition: 1s ease-in-out;
+      }
+
+      .card h1 {
+        font-family: var(--secondary-font);
+        font-weight: bold;
+      }
+      .card:hover {
+        box-shadow: 10px 10px 25px white;
+      }
+
+      .card button:hover {
+        opacity: 0.9;
+        background-color: #370617;
+      }
+
+      .description {
+        padding: 3%;
+        font-size: 1.4em;
+      }
+
+      .item-img {
+        height: 250px;
+        width: 100%;
+      }
+
+      .item-price {
+        text-decoration: none;
+        color: brown;
+        position: relative;
+        top: -2%;
+        margin: 0 0 0 2%;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 22px;
+      }
+
+      .price-dropdown {
+        text-decoration: none;
+        color: grey;
+        position: relative;
+        top: -5%;
+        margin: 0 0 0 2%;
+      }
+
+      /* F O O T E R */
+      .footer {
+        align-items: center;
+        height: 40vh;
+        margin-left: 15vh;
+      }
+
+      .last-image {
+        height: 75%;
+        width: 90%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--  N A V I G A T I O N   B A R  -->
+
+    <div class="topnav" id="myTopnav">
+      <div class="navtop" id="mynavTop">
+        <a style="color: white" href="Homepage.html">Home</a>
+        <div class="drop_down">
+          <button class="dropdown_btn">
+            Items
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="drop-content">
+            <a style="color: white" href="Cakes.html">Cakes</a>
+            <a style="color: white" href="Pastries.html">Pastries</a>
+            <a style="color: white" href="BiscuitsAndCookies.html">Cookies</a>
+            <a style="color: white" href="Donut.html">Donuts</a>
+          </div>
+        </div>
+        <a style="color: white" href="KitchenPage.html">Our Kitchen</a>
+        <a style="color: white" href="Gallery.html">Gallery</a>
+        <a href="" style="float: right" data-toggle="modal" data-target="#cart"
+          ><i class="fas fa-shopping-cart"></i
+          ><span class="cart-items">( 0 )</span></a
+        >
+        <a href="SignUp Page.html" target="_blank" style="float: right"
+          ><i class="fas fa-user"></i
+        ></a>
+        <a
+          href="javascript:void(0);"
+          style="font-size: 15px"
+          class="icon"
+          onclick="myFunction()"
+          >&#9776;</a
+        >
+
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            pattern="[A-Za-z]"
+          />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+    <!--  M A I N   C O N T E N T  -->
+
+    <div>
+      <h1 id="heading">Chocolate Cakes</h1>
+    </div>
+
+    <!--  I T E M   C A R D S  -->
+
+    <div id="main">
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=924&q=80"
+          class="item-img"
+        />
+        <h1>Dark Forest</h1>
+        <form name="form1">
+          <select
+            id="a3"
+            class="price-dropdown"
+            name="select1"
+            Onchange="change1()"
+            value="Quanity and Price-1"
+          >
+            <option value="1kg ~ ₹549">1kg ~ ₹549</option>
+            <option value="2kg ~ ₹1149">2kg ~ ₹1149</option>
+            <option value="3Kg ~ ₹1549">3Kg ~ ₹1549</option>
+            <option value="4Kg ~ ₹2049">4Kg ~ ₹2049</option>
+          </select>
+        </form>
+        <p id="demo1" class="item-price"></p>
+        <p class="description">
+          An exquisite blend of overflowing dark chocolate to satisfy all your
+          cravings!
+        </p>
+        <p>
+          <button onclick="add_to_cart('1','Dark Forest','549')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/474x/a3/7b/ce/a37bcee426bb048f2e79a66be857ce97.jpg"
+          class="item-img"
+        />
+        <h1>Overload</h1>
+        <form name="form2">
+          <select
+            id="a5"
+            class="price-dropdown"
+            name="select2"
+            Onchange="change2()"
+            value="Quanity and Price-2"
+          >
+            <option value="1kg ~ ₹699">1kg ~ ₹699</option>
+            <option value="2kg ~ ₹1349">2kg ~ ₹1349</option>
+            <option value="3Kg ~ ₹1999">3Kg ~ ₹1999</option>
+            <option value="4Kg ~ ₹2649">4Kg ~ ₹2649</option>
+          </select>
+        </form>
+        <p id="demo2" class="item-price"></p>
+        <p class="description">An overload of chocolate indide and out!</p>
+        <p>
+          <button onclick="add_to_cart('2','Overload','699')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1582570675095-9b679953577e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=924&q=80"
+          class="item-img"
+        />
+        <h1>Melting Memories</h1>
+        <form name="form3">
+          <select
+            id="a6"
+            class="price-dropdown"
+            name="select3"
+            Onchange="change3()"
+            value="Quanity and Price-3"
+          >
+            <option value="1kg ~ ₹699">1kg ~ ₹699</option>
+            <option value="2kg ~ ₹1349">2kg ~ ₹1349</option>
+            <option value="3Kg ~ ₹1999">3Kg ~ ₹1999</option>
+            <option value="4Kg ~ ₹2649">4Kg ~ ₹2649</option>
+          </select>
+        </form>
+        <p id="demo3" class="item-price"></p>
+        <p class="description">
+          Cake with rich belgian chocolate which instantly melts in your mouth!
+        </p>
+        <p>
+          <button onclick="add_to_cart('3','Melting Memories','699')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1569929232526-d9c6578e1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+          class="item-img"
+        />
+        <h1>Choco Lava</h1>
+        <form name="form4">
+          <select
+            id="a10"
+            class="price-dropdown"
+            name="select4"
+            Onchange="change4()"
+            value="Quanity and Price-4"
+          >
+            <option value="1kg ~ ₹849">1kg ~ ₹849</option>
+            <option value="2kg ~ ₹1649">2kg ~ ₹1649</option>
+            <option value="3Kg ~ ₹2449">3Kg ~ ₹2449</option>
+            <option value="4Kg ~ ₹3249">4Kg ~ ₹3249</option>
+          </select>
+        </form>
+        <p id="demo4" class="item-price"></p>
+        <p class="description">
+          Delightful chocolate flowing out with every bite!
+        </p>
+        <p>
+          <button onclick="add_to_cart('4','Choco Lava','849')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/474x/d2/2b/50/d22b5023e16c42a0a2b3f18e2047279f.jpg"
+          class="item-img"
+        />
+        <h1>Rich Cocoa</h1>
+        <form name="form5">
+          <select
+            id="a11"
+            class="price-dropdown"
+            name="select5"
+            Onchange="change5()"
+            value="Quanity and Price-5"
+          >
+            <option value="1kg ~ ₹899">1kg ~ ₹899</option>
+            <option value="2kg ~ ₹1749">2kg ~ ₹1749</option>
+            <option value="3Kg ~ ₹2599">3Kg ~ ₹2599</option>
+            <option value="4Kg ~ ₹3449">4Kg ~ ₹3499</option>
+          </select>
+        </form>
+        <p id="demo5" class="item-price"></p>
+        <p class="description">
+          What's a better way to make your chocolate vake more special than
+          choco balls?
+        </p>
+        <p>
+          <button onclick="add_to_cart('5','Rich Cocoa','899')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+      <div class="card">
+        <img
+          src="https://i.pinimg.com/564x/2f/40/40/2f40406ee88a54fc7108f2f0a5d3cccc.jpg"
+          class="item-img"
+        />
+        <h1>Choco Berries</h1>
+        <form name="form6">
+          <select
+            id="a21"
+            class="price-dropdown"
+            name="select6"
+            Onchange="change6()"
+            value="Quanity and Price-6"
+          >
+            <option value="1kg ~ ₹1299">1kg ~ ₹1299</option>
+            <option value="2kg ~ ₹2549">2kg ~ ₹2549</option>
+            <option value="3Kg ~ ₹3799">3Kg ~ ₹3799</option>
+            <option value="4Kg ~ ₹5049">4Kg ~ ₹5049</option>
+          </select>
+        </form>
+        <p id="demo6" class="item-price"></p>
+        <p class="description">
+          A refreshing treat for chocolate and fruit lovers!
+        </p>
+        <p>
+          <button onclick="add_to_cart('6','Choco Berries','1299')">
+            Add to Cart
+          </button>
+        </p>
+      </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3
+              class="modal-title"
+              id="exampleModalLabel"
+              style="font-weight: bold"
+            >
+              Your Cart
+            </h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-body"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary checkout-btn"
+              onclick="Checkout()"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F O O T E R   S O C I A L   I C O N S -->
+
+    <div class="footer">
+        <img class="last-image"
+        src="footer.png"/>
+      </div>
+  
+
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gallery</title>
+
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin&family=Herr+Von+Muellerhoff&family=Poiret+One&family=Source+Sans+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="mycart.js"></script>
+    <script src="myscript.js"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("mynavTop");
+        if (x.className === "navtop") {
+          x.className += " responsive";
+        } else {
+          x.className = "navtop";
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --main-font: "Source Sans Pro", sans-serif;
+        --secondary-font: "Poiret One", cursive;
+        --body-font: "Cabin", sans-serif;
+        --headings-font: "Herr Von Muellerhoff", cursive;
+      }
+
+      body {
+        background-color: #dbc1ac;
+        font-family: var(--body-font);
+        font-size: 10px;
+        scroll-behavior: smooth;
+        margin: 0px;
+      }
+
+      /* N A V I G A T I O N */
+
+      .navtop {
+        overflow: hidden;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
+      }
+
+      .navtop a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navtop .icon {
+        display: none;
+      }
+
+      .drop_down {
+        float: left;
+        overflow: hidden;
+      }
+
+      .drop_down .dropdown_btn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .drop-content {
+        display: none;
+        position: absolute;
+        background-color: #ece0d1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .drop-content a {
+        float: none;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .navtop a:hover,
+      .drop_down:hover .dropdown_btn,
+      .search-container button:hover {
+        background-color: #ece0d1;
+        color: white;
+      }
+
+      .drop-content a:hover {
+        background-color: #ece0d1;
+        color: white;
+      }
+
+      .drop_down:hover .drop-content {
+        display: block;
+      }
+
+      @media screen and (max-width: 920px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop a:not(:first-child),
+        .dropdown .dropbtn {
+          display: none;
+        }
+
+        .navtop a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop.responsive {
+          position: relative;
+        }
+        .navtop.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .navtop.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+        .navtop.responsive .drop_down {
+          float: none;
+        }
+        .navtop.responsive .drop-content {
+          position: relative;
+        }
+        .navtop.responsive .drop_down .dropdown_btn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        .navtop input[type="text"] {
+          display: inline;
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 17px;
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 488px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      .search-container {
+        float: right;
+      }
+
+      .navtop input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddbea9;
+        font-size: 17px;
+        border: none;
+      }
+
+      /*  I M A G E S   A N D   O T H E R    P A R T S  */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+      }
+
+      .header {
+        text-align: center;
+        padding: 5%;
+        text-decoration-style: double;
+      }
+
+      .subheader {
+        margin: 5% 5%;
+        font-style: italic;
+        font-family: var(--secondary-font);
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 5%;
+      }
+
+      .column {
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+      }
+
+      .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+        padding: 1%;
+      }
+
+      /*   A D D I N G   R E S P O N S I V E N E S S   */
+
+      @media screen and (max-width: 800px) {
+        .column {
+          flex: 50%;
+          max-width: 50%;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .column {
+          flex: 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--  N A V I G A T I O N   B A R  -->
+
+    <div class="topnav" id="myTopnav">
+      <div class="navtop" id="mynavTop">
+        <a style="color: white" href="Homepage.html">Home</a>
+        <div class="drop_down">
+          <button class="dropdown_btn">
+            Items
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="drop-content">
+            <a style="color: white" href="Cakes.html">Cakes</a>
+            <a style="color: white" href="Pastries.html">Pastries</a>
+            <a style="color: white" href="BiscuitsAndCookies.html">Cookies</a>
+            <a style="color: white" href="Donut.html">Donuts</a>
+          </div>
+        </div>
+        <a style="color: white" href="KitchenPage.html">Our Kitchen</a>
+        <a style="color: white" href="Gallery.html">Gallery</a>
+        <a href="" style="float: right" data-toggle="modal" data-target="#cart"
+          ><i class="fas fa-shopping-cart"></i
+          ><span class="cart-items">( 0 )</span></a
+        >
+        <a href="SignUp Page.html" target="_blank" style="float: right"
+          ><i class="fas fa-user"></i
+        ></a>
+        <a
+          href="javascript:void(0);"
+          style="font-size: 15px"
+          class="icon"
+          onclick="myFunction()"
+          >&#9776;</a
+        >
+
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            pattern="[A-Za-z]"
+          />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header">
+      <h1 style="font-family: var(--headings-font); font-size: 90px">
+        Gallery
+      </h1>
+    </div>
+
+    <!-- P H O T O S -->
+
+    <div class="subheader">
+      <h2 style="font-size: 50px">SPECIALS</h2>
+      <p style="font-size: 25px">
+        - A collection of images of all our special menus (limited period
+        items)!
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <img
+          src="https://i.pinimg.com/474x/01/fa/96/01fa9660e0c4591c1be323f753ba7c67.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/17/01/f6/1701f664ec2143c894664f174b555c81.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/98/37/c4/9837c423b77bf82627c4ef6d94976faf.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/d4/80/16/d480161e7fcfcd5b04f77b84168d5567.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/c4/02/f6/c402f678e4ef06b21e92169073b7d03a.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/0c/18/96/0c18965ee529f4c8c7e32227bbe7864b.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/2d/0f/83/2d0f83c9174a30ea180ad31b2d8cc2c8.jpg"
+        />
+      </div>
+
+      <div class="column">
+        <img
+          src="https://i.pinimg.com/474x/df/4c/56/df4c56c13320813e89479dc623a5e6de.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/55/b5/4e/55b54ef5f57598205995c98c0ce9dc32.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/07/fe/40/07fe404ca9327bf56c87b24a8b9208e2.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/9b/8c/df/9b8cdf0bee5360ae58a94698d3cf5219.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/ba/63/6b/ba636b5ad83ae0f549bd9731a2f02346.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/71/9e/82/719e82b6347aa0014f3a11ab4b79f959.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/2b/8f/b0/2b8fb0e0bc245bbfcf5b0755b58b2693.jpg"
+        />
+      </div>
+
+      <div class="column">
+        <img
+          src="https://i.pinimg.com/474x/24/f3/58/24f358d734ad3527ca40343ea41a8576.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/d9/a1/eb/d9a1eba110dff93d7592aa84a3519d66.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/cb/44/66/cb44665b41adeda4a0c1ad15c5d0e4d0.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/52/03/50/5203509a81366ebe056ea0c18e8127af.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/6a/4f/a8/6a4fa85dd24d9fb0bb9497682836ddbf.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/6d/ff/7f/6dff7f832c1a5cab8e0b64cf8e998371.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/7c/0a/4a/7c0a4aa5872152c8caa44ed9236a4509.jpg"
+        />
+      </div>
+
+      <div class="column">
+        <img
+          src="https://i.pinimg.com/474x/12/1c/ff/121cfff0843a2cc3721013952049580b.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/a3/6c/69/a36c69f187aa35cd38f3bc03c5a93f63.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/3b/30/da/3b30da5509d6132566dec5287177104e.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/24/c5/b5/24c5b5373334d58b429e73b3388764dc.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/9c/c1/b7/9cc1b7cc0be0804dda0d93f7e35871a9.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/44/ff/2a/44ff2a60cceecbff14bdc41843221019.jpg"
+        />
+        <img
+          src="https://i.pinimg.com/474x/d4/20/12/d42012ba478399a12a8e8df66b23a693.jpg"
+        />
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3
+              class="modal-title"
+              id="exampleModalLabel"
+              style="font-weight: bold"
+            >
+              Your Cart
+            </h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-body"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary checkout-btn"
+              onclick="Checkout()"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

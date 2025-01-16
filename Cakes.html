@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cakes</title>
+
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin&family=Herr+Von+Muellerhoff&family=Poiret+One&family=Source+Sans+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="mycart.js"></script>
+    <script src="myscript.js"></script>
+    <script>
+      /* F O R   N A V I G A T I O N */
+
+      function myFunction() {
+        var x = document.getElementById("mynavTop");
+        if (x.className === "navtop") {
+          x.className += " responsive";
+        } else {
+          x.className = "navtop";
+        }
+      }
+
+      /* F O R   S L I D E S H O W */
+
+      var counter = 1;
+      setInterval(function () {
+        document.getElementById("radio" + counter).checked = true;
+        counter++;
+        if (counter > 7) {
+          counter = 1;
+        }
+      }, 3500);
+    </script>
+
+    <style>
+      :root {
+        --main-font: "Source Sans Pro", sans-serif;
+        --secondary-font: "Poiret One", cursive;
+        --body-font: "Cabin", sans-serif;
+        --headings-font: "Herr Von Muellerhoff", cursive;
+      }
+
+      body {
+        background-color: #664d4d;
+        font-family: var(--body-font);
+        font-size: 10px;
+        scroll-behavior: smooth;
+        margin: 0px;
+      }
+
+      /* N A V I G A T I O N */
+
+      .navtop {
+        overflow: hidden;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
+      }
+
+      .navtop a {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navtop .icon {
+        display: none;
+      }
+
+      .drop_down {
+        float: left;
+        overflow: hidden;
+      }
+
+      .drop_down .dropdown_btn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .drop-content {
+        display: none;
+        position: absolute;
+        background-color: #664d4d;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .drop-content a {
+        float: none;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .navtop a:hover,
+      .drop_down:hover .dropdown_btn,
+      .search-container button:hover {
+        background-color: rgb(169, 125, 125);
+        color: white;
+      }
+
+      .drop-content a:hover {
+        background-color: rgb(169, 125, 125);
+        color: white;
+      }
+
+      .drop_down:hover .drop-content {
+        display: block;
+      }
+
+      @media screen and (max-width: 920px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop a:not(:first-child),
+        .dropdown .dropbtn {
+          display: none;
+        }
+
+        .navtop a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 698px) {
+        .navtop.responsive {
+          position: relative;
+        }
+        .navtop.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .navtop.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+        .navtop.responsive .drop_down {
+          float: none;
+        }
+        .navtop.responsive .drop-content {
+          position: relative;
+        }
+        .navtop.responsive .drop_down .dropdown_btn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        .navtop input[type="text"] {
+          display: inline;
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 17px;
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 488px) {
+        .navtop input[type="text"] {
+          display: none;
+        }
+      }
+
+      .search-container {
+        float: right;
+      }
+
+      .navtop input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: rgb(169, 125, 125);
+        font-size: 17px;
+        border: none;
+      }
+
+      /* M A I N - C O N T E N T */
+
+      #main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 5%;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      #heading {
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        font-family:var(--secondary-font);
+        font-size: 30px;
+        margin: 5% 5% 0% 5%;
+        padding: 2%;
+        letter-spacing: 5px;
+      }
+
+      .card {
+        width: 400px;
+        height: 300px;
+        border-radius: 10px;
+        position: relative;
+        margin: 20px 20px 20px 20px;
+      }
+
+      .change {
+        display: block;
+        width: 400px;
+        height: 300px;
+        border-radius: 10px;
+      }
+
+      .image_overlay {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        font-family: "Quicksand", "sans-serif";
+        display: flex;
+        flex-direction: columns;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.25s;
+      }
+      .image_overlay:hover {
+        opacity: 1;
+      }
+      .image_overlay:hover > * {
+        transform: translateY(20px);
+        transition: transform 0.25s;
+      }
+
+      .image_overlay:hover > * {
+        transform: translateY(0px);
+      }
+      .name {
+        font-size: 3em;
+        font-weight: bold;
+        font-family: var(--headings-font);
+      }
+
+      .image_overlay > div {
+        margin: 2%;
+      }
+
+      .discription {
+        font-size: 1.3em;
+        margin-top: 0.25em;
+        font-family: var(--body-font);
+      }
+
+      #heading1 {
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        font-family:var(--headings-font);
+        font-size: 60px;
+        margin: 5% 5% 0% 5%;
+        padding: 2%;
+      }
+
+      /* F O O T E R */
+
+     
+      .footer{
+        align-items: center;
+        height:40vh;
+        margin-left: 15vh;
+      }
+
+      .last-image{
+        height: 75%;
+        width: 90%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--  N A V I G A T I O N   B A R  -->
+
+    <div class="topnav" id="myTopnav">
+        <div class="navtop" id="mynavTop">
+          <a style="
+            color:white" href="Homepage.html">Home</a>
+          <div class="drop_down">
+            <button class="dropdown_btn">
+              Items
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="drop-content">
+              <a style="color:white"href="Cakes.html">Cakes</a>
+              <a style="color:white"href="Pastries.html">Pastries</a>
+              <a style="color:white"href="BiscuitsAndCookies.html">Cookies</a>
+              <a style="color:white"href="Donut.html">Donuts</a>
+            </div>
+          </div>
+          <a style="color:white"href="KitchenPage.html">Our Kitchen</a>
+          <a style="color:white"href="Gallery.html">Gallery</a>
+          <a href="" style="float: right" data-toggle="modal" data-target="#cart"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="cart-items">( 0 )</span></a
+  >
+          <a href="SignUp Page.html" target="_blank" style="float: right"
+            ><i class="fas fa-user"></i
+          ></a>
+          <a
+            href="javascript:void(0);"
+            style="font-size: 15px"
+            class="icon"
+            onclick="myFunction()"
+            >&#9776;</a
+          >
+  
+          <div class="search-container">
+            <input
+              type="text"
+              placeholder="Search"
+              name="search"
+              pattern="[A-Za-z]"
+            />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+  
+      <!--  M A I N   C O N T E N T  -->
+    </div>
+    <div>
+      <h1 id="heading">
+        I was trying to lose weight.<br />Then, I saw a cake, and cake saw
+        me.<br />
+        The cake disappeared !!!
+      </h1>
+    </div>
+    <p id="heading1">Which flavor would you like to order?</p>
+    <div id="main">
+      <a href="Chocolate.html">
+        <div class="card">
+          <img
+            src="https://bonnibakery.com/wp-content/uploads/2021/01/ChocolateCake-2-scaled.jpg"
+            class="change"
+          />
+          <div class="image_overlay">
+            <div class="name">Chocolate Cake<br></div>
+            <br />
+            <div class="discription">
+              <br>Page one is diet, Page two is chocolate cake.
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="RedVelvetCake.html">
+        <div class="card">
+          <img
+            src="https://cdn.pixabay.com/photo/2020/03/10/03/49/red-velvet-cake-4917734_1280.jpg"
+            class="change"
+          />
+          <div class="image_overlay">
+            <div class="name">Red Velvet Cake</div>
+            <br />
+            <div class="discription">
+              Romance is the icing, but love is red velvet.
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="ButterscotchCake.html">
+        <div class="card">
+          <img
+            src="https://thomsonline.in/wp-content/uploads/2019/08/BUTTERSCOTCH-CAKE-3.jpg"
+
+            class="change"
+          />
+          <div class="image_overlay">
+            <div class="name">Butter Scotch Cake</div>
+            <br />
+            <div class="discription">
+              You can't buy happiness, but you can buy a butterscotch cake and
+              that's kind of same thing.
+            </div>
+            <br />
+          </div>
+        </div>
+      </a>
+
+      <a href="Vanilla Cakes.html">
+        <div class="card">
+          <img
+            src="https://bakingamoment.com/wp-content/uploads/2018/05/IMG_7832-vanilla-layer-cake-square.jpg"
+            class="change"
+            id="change4"
+          />
+          <div class="image_overlay">
+            <div class="name">Vanilla Cake</div>
+            <br />
+            <div class="discription">
+              When life goes awry, have a piece of vanilla cake.
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3
+              class="modal-title"
+              id="exampleModalLabel"
+              style="font-weight: bold"
+            >
+              Your Cart
+            </h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-body"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary checkout-btn"
+              onclick="Checkout()"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F O O T E R   S O C I A L   I C O N S -->
+
+    <div class="footer">
+        <img class="last-image"
+        src="footer.png"/>
+    </div>
+  </body>
+</html>
